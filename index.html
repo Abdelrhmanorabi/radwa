@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Radwa Abubkr Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+<meta name="google" content="notranslate">
+
+<style>
+  body {
+    margin: 0; font-family: 'Cairo', sans-serif; background-color: #fff; color: #003366;
+  }
+  header {
+    background-color: #5e0e7d;
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  
+  }
+  header h1 {
+    margin: 0; color: white; font-weight: 700; font-size: 1.9rem; cursor: default;
+  }
+  nav {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  nav button {
+    background-color: #821adc;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+
+  }
+  nav button:hover, nav button.active {
+    background-color: #00eeff;
+  }
+  main {
+    max-width: 1100px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #003366;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  p, ul {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+  ul {
+    margin-left: 1.6rem;
+  }
+  .card {
+    background: #e6f0ff;
+    border: 1px solid #99bbff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 1.3rem 2rem;
+    margin-bottom: 1.8rem;
+  }
+  .price {
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #003366;
+  }
+  .button-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #00509e;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .button-link:hover {
+    background-color: #001f4d;
+  }
+  footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    user-select: none;
+  }
+  .coach-photo {
+    max-width: 200px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    border: 3px solid #00509e;
+  }
+  @media (max-width: 650px) {
+    .coach-photo {
+      float: none;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    nav {
+      justify-content: center;
+    }
+  }
+  form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  label {
+    font-weight: 700;
+  }
+  input, select, textarea {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1.5px solid #99bbff;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #003366;
+    outline: none;
+  }
+  button.submit-btn {
+    background-color: #00509e;
+    color: white;
+    padding: 0.9rem;
+    border: none;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button.submit-btn:hover {
+    background-color: #001f4d;
+  }
+  #thankyou-message {
+    background: #e6f0ff;
+    border: 1px solid #00509e;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    color: #003366;
+  }
+  #thankyou-message ul {
+    list-style-type: disc;
+    margin-left: 1.4rem;
+  }
+  #thankyou-message a {
+    color: #001f4d;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  #thankyou-message a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+header h1 {
+  margin: 0;
+  color: white;
+  font-weight: 700;
+  font-size: 1.9rem;
+  cursor: default;
+}
+.logo {
+  max-height: 1px;
+  margin-right: 1rem;
+}
+
+  header h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .phone-icon {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav button {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    margin: 4px 0;
+  }
+
+  .coach-photo {
+    max-width: 140px;
+    margin: 0 auto 1rem;
+    float: none;
+    display: block;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+
+  form {
+    padding: 0 1rem;
+  }
+
+  input, select, textarea {
+    font-size: 1rem;
+  }
+
+  .button-link, .submit-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #lang-toggle {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+.section-icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.course-slider-container {
+  position: relative;
+  overflow: hidden;
+  margin: 3rem 0;
+  background-color: #f0f8ff;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.course-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 1rem;
+}
+
+.course-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.course-slide img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.course-info h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  color: #003366;
+}
+
+.course-info p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.show-more-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #00509e;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #003366;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head> 
+<body>
+
+<header>
+<img src="https://i.postimg.cc/qvXSfyQh/image.png" alt="Logo" class="logo" />
+
+ <nav class="nav-bar">
+  <button class="nav-btn active" data-section="home">Home</button>
+  <button class="nav-btn" data-section="about">About</button>
+
+  <div class="dropdown">
+    <button class="nav-btn">Courses ▼</button>
+    <div class="dropdown-content">
+      <button class="nav-btn" data-section="foundation">Foundation Diploma</button>
+      <button class="nav-btn" data-section="advanced">Advanced Diploma</button>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="nav-btn">Mini Courses ▼</button>
+    <div class="dropdown-content">
+      <button class="nav-btn" data-section="art-of-soul">Art of Soul Workshop</button>
+      <button class="nav-btn" data-section="connection">Art of Connection Workshop</button>
+      <button class="nav-btn" data-section="discovery">Discovery Workshop</button>
+    </div>
+  </div>
+  <button class="nav-btn" data-section="call">Discovery Call</button>
+  <button class="nav-btn" data-section="booking">Book Now</button>
+    <button class="nav-btn" onclick="window.location.href='login.html'">Recorded Cources</button>
+    <div class="auth-buttons">
+ <div id="language-selector">
+  
+</div>
+
+<style>
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Login */
+.login {
+  background: #fff;
+  color: #4B007D;
+}
+
+/* Sign Up */
+.signup {
+  background: #00f5ff;
+  color: #000;
+}
+
+/* Hover effects */
+.login:hover {
+  background: #eee;
+}
+
+.signup:hover {
+  background: #7C19C0;
+  color: #fff;
+}
+</style>
+
+</nav>
+
+<style>
+  .nav-bar {
+    background-color:
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #821adc;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .nav-btn:hover {
+    background-color: #00eeff;
+    color: #000;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #821adc;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  .dropdown-content .nav-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    background-color: #821adc;
+    color: white;
+    border: none;
+    border-radius: 0;
+  }
+
+  .dropdown-content .nav-btn:hover {
+    background-color: #00eeff;
+    color: #000;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+.course-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.course-slider::-webkit-scrollbar {
+  height: 6px;
+}
+.course-slider::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.course-card {
+  min-width: 260px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 16px;
+  text-align: center;
+}
+
+.course-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 120px;
+}
+
+.course-card h3 {
+  font-size: 18px;
+  color: #e91e63;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.course-card .btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.course-card .btn {
+  background-color: #e91e63;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.course-card .btn:hover {
+  background-color: #c2185b;
+}
+
+
+</style>
+</header>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
+  <div style="background:#fff; padding:20px; border-radius:10px; width:300px; text-align:center; position:relative;">
+    <span onclick="closeModals()" style="position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer;">&times;</span>
+    <h3>Login</h3>
+    <input type="email" id="loginEmail" placeholder="Email" style="width:90%; padding:10px; margin:10px 0;">
+    <input type="password" id="loginPassword" placeholder="Password" style="width:90%; padding:10px; margin:10px 0;">
+    <button onclick="login()" style="background:#821adc; color:#fff; padding:10px; width:100%; border:none; border-radius:6px;">Login</button>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
+  <div style="background:#fff; padding:20px; border-radius:10px; width:300px; text-align:center; position:relative;">
+    <span onclick="closeModals()" style="position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer;">&times;</span>
+    <h3>Sign Up</h3>
+    <input type="text" id="signupUsername" placeholder="Username" style="width:90%; padding:10px; margin:10px 0;">
+    <input type="email" id="signupEmail" placeholder="Email" style="width:90%; padding:10px; margin:10px 0;">
+    <input type="password" id="signupPassword" placeholder="Password" style="width:90%; padding:10px; margin:10px 0;">
+    <button onclick="signup()" style="background:#821adc; color:#fff; padding:10px; width:100%; border:none; border-radius:6px;">Sign Up</button>
+  </div>
+</div>
+
+<main>
+<section id="home" class="active">
+
+  <img src="https://i.postimg.cc/DzGqTtgN/image.jpg" alt="Luscher Color Test" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin-bottom:1.5rem;" />
+
+  <h2>Transform Your Life Through Deep Emotional Understanding</h2>
+
+  <p>
+    Have you ever felt that your emotions are bigger than you can handle, or that you’re carrying burdens you don’t fully understand?
+    Through our specialized programs, we help you access the *hidden layers* of your mind and emotions using scientifically proven and internationally certified tools.
+  </p>
+
+  <h3>🎨 The Power of Art Therapy</h3>
+  <p>
+    Art therapy is not just drawing — it's a path to expressing what words can’t. Through guided sessions, you will learn how to process trauma, manage stress, and heal emotional wounds.
+    Whether you're struggling with anxiety, disconnection, or emotional confusion, art therapy provides a gentle and powerful way to release pain and reconnect with your true self.
+  </p>
+
+  <h3>🎯 Max Lüscher Color Test – Psychology in Colors</h3>
+  <p>
+    This world-renowned psychological tool dives into your subconscious through simple color choices. Without asking questions or needing long explanations, the Lüscher Test reveals emotional states, internal conflicts, and psychological needs.
+    It’s used globally by therapists, doctors, HR departments, and coaches — and now, it’s available for YOU in private sessions or training formats.
+  </p>
+
+  <h3>🧠 Meta-Health & Trauma Diagnosis</h3>
+  <p>
+    We go beyond symptoms to uncover the root emotional causes behind physical and mental issues. Meta-Health is a powerful science that connects the mind, brain, and body,
+    helping you understand why certain patterns or symptoms repeat — and how to break free.
+  </p>
+
+  <h3>👩‍💼 Corporate Trainings for Teams & Leaders</h3>
+  <p>
+    We offer advanced training programs for institutions and companies based on color psychology, emotional awareness, and behavioral diagnosis. Using the Lüscher Test and art therapy tools,
+    we help teams build stronger emotional intelligence, communication, and productivity — all with lasting impact.
+  </p>
+
+  <h3>❤️ Couples & Relationship Coaching</h3>
+  <p>
+    Relationships are the core of our emotional world. Our certified relationship consultations are based on deep psychological methods that help couples understand emotional dynamics, build healthy boundaries,
+    and reconnect on a real level. Whether you're single, married, or in a complicated phase — there's space for healing.
+  </p>
+
+  <img src="https://i.postimg.cc/yY5Kq9td/image.jpg" alt="Art Therapy" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin-top:2rem; margin-bottom:1rem;" />
+
+  <h3>📚 Certified Programs Backed by International Institutes</h3>
+  <p>
+    All our sessions and trainings are led by <strong>Radwa Abubkr</strong>, internationally certified in multiple fields of healing and diagnosis.
+    You will not just attend a session — you will begin a journey of transformation based on deep knowledge, compassion, and effective tools.
+  </p>
+
+  <p style="font-weight: bold; font-size: 1.1rem;">
+    You are not broken. You are waiting to be understood. Let us guide you.
+  </p>
+   <button class="button-link" data-section="call">Book Your Free Discovery Call Now</button>
+
+<!-- 🔽 Course Slider -->
+<div class="course-slider-container">
+  <button class="slider-btn prev">&#10094;</button>
+  <div class="course-slider">
+    <div class="course-slide">
+      <img src="https://i.postimg.cc/d1VWcCX6/images-2.png" alt="Course Logo">
+      <div class="course-info">
+        <h3>Foundational Art Therapy Diploma</h3>
+        <p>Learn healing through creativity. Understand emotions, release stress.</p>
+   <button class="nav-btn" data-section="foundation">show more</button>
+      </div>
+    </div>
+
+    <div class="course-slide">
+      <img src="https://i.postimg.cc/d1VWcCX6/images-2.png" alt="Course Logo">
+      <div class="course-info">
+        <h3>Advanced Art Therapy Diploma</h3>
+        <p>Master trauma release and energy psychology techniques.</p>
+    <button class="nav-btn" data-section="advanced">show more</button>
+      </div>
+    </div>
+
+    <div class="course-slide">
+      <img src="https://i.postimg.cc/W4FGG7QQ/removebg-preview.png" alt="Course Logo">
+      <div class="course-info">
+        <h3>Art of Connection Workshop</h3>
+        <p>Learn to build emotional boundaries and strong relationships.</p>
+      <button class="nav-btn" data-section="connection">show more</button>
+
+      
+      </div>
+    </div>
+  </div>
+  <button class="slider-btn next">&#10095;</button>
+</div>
+
+
+    
+
+
+
+</section>
+
+
+      
+</section>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About the Coach</h2>
+    <img src="https://i.postimg.cc/N00sXrBQ/Whats-App-Image-2025-06-20-at-00-08-49-8f2f1dc4.jpg" alt="Radwa Abubkr" class="coach-photo" />
+    <p>Radwa Abubkr holds multiple international certifications in various alternative healing techniques.</p>
+    <p> Practitioner of Max Luscher's diagnostic color test, certified by the Max Luscher Academy in Switzerland.</p>
+    <p>📍 Specialist in training institutions, companies, and individuals using Luscher techniques.</p>
+    <p>📍 Advanced MetaHealth practitioner from the German MetaHealth Society for emotional cause diagnosis.</p>
+    <p>📍 P📍ractitioner of art therapy for attachment issues, certified by the Canadian International Institute CiiAT.</p>
+    <p>📍 Certified couples relationship consultant from Cosrt/NCP England.</p>
+    <p>📍 Advanced EFT practitioner for emotional freedom, certified by EFTMRA England.</p>
+    <p>📍 Matrix-Reimprinting therapist certified by EFTMRA England with international trainer Penny Croal.</p>
+    <p>📍 Certified life coach from Neuro-Semantics International.</p>
+    <p>📍 Practitioner in emotional diagnosis and effective trauma release techniques using EFT-Matrix, Access Bars©, Art as Therapy, Meta-beat, Meta-health, Reiki.</p>
+  </section>
+
+  <!-- Foundation Diploma -->
+  <section id="foundation">
+  <style>
+  .foundation-logo {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 300px;
+  }
+</style>
+
+<es on session delivery, report writing, and follow-up</li>
+        </ul>
+      </li>
+    </ul>
+ 
+     <img src="https://i.postimg.cc/J4SnXsqv/images-2.png" class="foundation-logo" alt="Logo" />
+<h2>Foundational Art Therapy Diploma</h2>
+    <h
+    <p>Are you looking to:</p>
+    <ul>
+      <li>Understand yourself more deeply?</li>
+      <li>Relieve stress and anxiety?</li>
+      <li>Learn new skills in communication and expression?</li>
+      <li>Achieve emotional and psychological balance?</li>
+    </ul>
+    <p>Join our Foundational Art Therapy Diploma covering:</p>
+    <ul>
+      <li><strong>Theoretical Part:</strong>
+        <ul>
+          <li>Difference between consciousness and perception</li>
+          <li>Stages of consciousness for individuals and societies</li>
+          <li>Body system: heart, mind, body, soul, and spirit</li>
+          <li>Schools of color therapy leading to art therapy</li>
+          <li>Introduction to Dr. Max Luscher</li>
+          <li>Achieving balance state</li>
+          <li>Brain layers and nervous system</li>
+          <li>Types of trauma and their effects</li> 
+          <li>Relationship of emotions to brain layers</li>
+          <li>Stages of trauma healing</li>
+          <li>Color stress code extraction method</li>
+        </ul>
+      </li>
+      <li><strong>Technical Part:</strong>
+        <ul>
+          <li>Roles of art therapy coach</li>
+          <li>How to conduct an art therapy session and write reports</li>
+          <li>Art therapy tools and their effects</li>
+        </ul>
+      </li>
+      <li><strong>Practical Part:</strong>
+        <ul>
+          <li>More than 11 art therapy techniques</li>
+          <li>5 supervision lectur
+<br> <br>
+            <button class="button-link" data-section="booking" data-course="Foundational Art Therapy Diploma - $250">Book Now</button>
+  </section>
+
+  <!-- Advanced Diploma -->
+  <section id="advanced">
+    <style>
+  .advanced-logo {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 300px;
+  }
+</style>
+
+<img src="https://i.postimg.cc/J4SnXsqv/images-2.png" class="advanced-logo" alt="Logo" />
+<h2>Advanced Art Therapy Diploma</h2>
+   
+    <p>Are you interested in art therapy and want to help yourself and others?</p>
+    <p>Want to learn more about colors and their psychological effects?</p>
+    <p>Join our Advanced Art Therapy Diploma covering:</p>
+    <ul>
+      <li>Overview of energy schools and their history</li>
+      <li>Ancient consciousness schools: Egyptian, Indian, Islamic</li>
+      <li>Modern consciousness schools</li>
+      <li>Stages of consciousness: Hawkins scale, Graves scale, Maslow pyramid</li>
+      <li>Body system: heart, mind, body, soul, spirit and heart activation techniques</li>
+      <li>Color therapy schools leading to art therapy</li>
+      <li>Introduction to Dr. Max Luscher</li>
+      <li>Achieving balance and stress code correction with card techniques</li>
+      <li>Music therapy and brain resonance healing</li>
+      <li>Movement therapy and emotional muscle release</li>
+      <li>Muscle testing technique</li>
+      <li>EFT - Emotional Freedom Technique</li>
+      <li>Brain layers, nervous system, trauma types and effects</li>
+      <li>Emotions relation to brain and cells</li>
+      <li>Trauma healing stages</li>
+      <li>Technical part: coach roles, session management, report writing, tools</li>
+      <li>Practical part: 30+ art therapy techniques</li>
+    </ul>
+    <p class="price">Duration: 6 months - 24 sessions</p>
+    
+    <button class="button-link" data-section="booking" data-course="Advanced Art Therapy Diploma ">Book Now</button>
+  </section>
+
+  <!-- Art of Soul Workshop -->
+  <section id="art-of-soul">
+<style>
+  .soul-logo {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 350px;
+  }
+</style>
+
+<img src="https://i.postimg.cc/g2wgMT3r/removebg-preview.png" class="soul-logo" alt="Logo" />
+<h2>Art of Soul Workshop</h2>
+    
+    <p><strong>Duration:</strong> 2 weeks, 2 days per week, 4 hours each session</p>
+    
+    <p><strong>Certificate:</strong> Attendance certificate from the trainer</p>
+    <p><strong>Platform:</strong> Online via Zoom</p>
+    <p>This workshop focuses on emotional connection and creative healing through art therapy techniques.</p>
+    <button class="button-link" data-section="booking" data-course="Art of Soul Workshop ">Book Now</button>
+  </section>
+
+  <!-- Art of Connection Workshop -->
+  <section id="connection">
+    <style>
+  .connection-logo {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 350px;
+  }
+</style>
+
+<img src="https://i.postimg.cc/k5mWx1c0/removebg-preview.png" class="connection-logo" alt="Logo" />
+<h2>Art of Connection Workshop</h2>
+    
+    <p><strong>Duration:</strong> 2 consecutive days, 4 hours each</p>
+    
+    <p><strong>Certificate:</strong> Attendance certificate from the trainer</p>
+    <p><strong>Platform:</strong> Online via Zoom</p>
+    <p>This workshop covers:</p>
+    <ul>
+      <li>Roles in relationships</li>
+      <li>Building safe and healthy boundaries</li>
+      <li>Risks of role swapping in relationships</li>
+      <li>How to handle healthy relationships</li>
+      <li>Creating healthy relationships to improve your life</li>
+    </ul>
+    <button class="button-link" data-section="booking" data-course="Art of Connection Workshop ">Book Now</button>
+  </section>
+
+  <!-- Discovery Workshop -->
+  <section id="discovery">
+    <style>
+  .discovery-logo {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 350px;
+  }
+</style>
+
+<img src="https://i.postimg.cc/1XQ0yyCY/removebg-preview.png" class="discovery-logo" alt="Logo" />
+<h2>Discovery Workshop</h2>
+   
+    <p><strong>Duration:</strong> 4 consecutive days, 3 hours each</p>
+    
+    <p><strong>Certificate:</strong> Attendance certificate from the trainer</p>
+    <p><strong>Platform:</strong> Online via Zoom</p>
+    <p>This workshop will help you:</p>
+    <ul>
+      <li>Discover your true needs and hidden feelings</li>
+      <li>Understand the impact of trauma on decisions and relationships</li>
+      <li>Recognize secondary gains behind certain behaviors or chronic illnesses</li>
+      <li>Learn to release trauma and identify types and causes</li>
+      <li>Connect with your internal system for healing</li>
+    </ul>
+    <button class="button-link" data-section="booking" data-course="Discovery Workshop - $100">Book Now</button>
+  </section>
+<!-- Discovery Call -->
+<section id="call">
+  <h2>Book a Free Discovery Call</h2>
+  <p>Select the best time for you from the calendar below to schedule your call.</p>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/radwa-abubkr/dicovry-call" style="min-width:320px;height:700px;"></div>
+</section>
+
+
+  <!-- Booking -->
+  <section id="booking">
+    <h2>Book Your Course or Workshop</h2>
+    <form id="booking-form" action="https://formspree.io/f/mldnwrwk" method="POST" >
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="phone" type="tel" required />
+
+      <label for="course">Select Course or Workshop</label>
+      <select id="course" name="course" required>
+        <option value="">-- Please select --</option>
+        <option value="Foundational Art Therapy Diploma ">Foundational Art Therapy Diploma </option>
+        <option value="Advanced Art Therapy Diploma ">Advanced Art Therapy Diploma </option>
+        <option value="Art of Soul Workshop ">Art of Soul Workshop </option>
+        <option value="Art of Connection Workshop ">Art of Connection Workshop </option>
+        <option value="Discovery Workshop ">Discovery Workshop </option>
+      </select>
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Any questions or details?"></textarea>
+
+      <button type="submit" class="submit-btn">Submit Booking</button>
+
+      
+    </form>
+
+    <div id="thankyou-message" style="display:none; margin-top:1.5rem;">
+      <h3>Thank you for your booking!</h3>
+      <p>To complete your registration, please proceed with payment using one of the options below:</p>
+      <ul>
+        <li><a href="https://ipn.eg/S/radwaabubakar/instapay/7LsZXx" target="_blank" rel="noopener noreferrer">Pay via InstaPay</a></li>
+        <li><a href="https://wa.me/201012147242" target="_blank" rel="noopener noreferrer">Contact via WhatsApp for Vodafone Cash or international payment</a></li>
+      </ul>
+      <p>We will contact you shortly after payment confirmation.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Radwa Abubkr Academy. All rights reserved.
+</footer>
+
+<script>
+  // Navigation buttons switching sections
+  const navButtons = document.querySelectorAll('nav .nav-btn');
+  const sections = document.querySelectorAll('main section');
+  const bookingForm = document.getElementById('booking-form');
+  const thankYouMessage = document.getElementById('thankyou-message');
+  const courseSelect = document.getElementById('course');
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-section');
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === target);
+      });
+      // Scroll to top on section change
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      // Hide thank you message and reset form when leaving booking
+      if (target !== 'booking') {
+        thankYouMessage.style.display = 'none';
+        bookingForm.style.display = 'flex';
+        bookingForm.reset();
+        
+      }
+    });
+  });
+
+  // Buttons inside content to switch sections and set course in booking form
+  document.querySelectorAll('.button-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.getAttribute('data-section');
+      const course = btn.getAttribute('data-course');
+      // Activate nav button for booking
+      navButtons.forEach(b => b.classList.remove('active'));
+      document.querySelector('nav .nav-btn[data-section="booking"]').classList.add('active');
+      // Show booking section only
+      sections.forEach(sec => sec.classList.toggle('active', sec.id === 'booking'));
+      // Scroll top
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      // Reset form and hide thank you
+      thankYouMessage.style.display = 'none';
+      bookingForm.style.display = 'flex';
+      bookingForm.reset();
+      // Set selected course if provided
+      if(course){
+        courseSelect.value = course;
+        
+      }
+    });
+  });
+
+  // Handle form submission with Formspree AJAX, prevent page reload
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(bookingForm);
+
+    try {
+      const response = await fetch(bookingForm.action, {
+        method: bookingForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      if (response.ok) {
+        // Show thank you message & hide form
+        bookingForm.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+        window.scrollTo({top: bookingForm.offsetTop, behavior: 'smooth'});
+      } else {
+        alert('There was a problem submitting your booking. Please try again later.');
+      }
+    } catch (error) {
+      alert('There was a network error. Please try again.');
+      console.error(error);
+    }
+  });
+</script>
+<!-- FONT AWESOME ICONS -->
+<script src="https://kit.fontawesome.com/464a8e8d14.js" crossorigin="anonymous"></script>
+
+<footer>
+  <div class="footer-content">
+    <img src="https://i.postimg.cc/qvXSfyQh/image.png" alt="Academy Logo" class="footer-logo" />
+
+    <div class="social-icons">
+      <a href="https://facebook.com/radwa.abobakr3" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/radwaaabubakr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/radwa_abubakr" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/201012147242" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <button id="lang-toggle">عربي</button>
+
+    <p class="dev-credit">Developed by <a href="https://instagram.com/abdelrhman_.orabi" target="blank">@abdelrhman.orabi</a></p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #0c0c0c;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-logo {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    margin: 1rem 0;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+
+  #lang-toggle {
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #ccc;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #lang-toggle:hover {
+    background-color: #00509e;
+    color: white;
+  }
+
+  .dev-credit {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    color: #aaa;
+  }
+
+  .dev-credit a {
+    color: #aaa;
+    text-decoration: none;
+  }
+
+  .dev-credit a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  const langToggle = document.getElementById('lang-toggle');
+
+  langToggle.addEventListener('click', function () {
+    const currentLang = document.documentElement.lang || 'en'; // لو مش محددة نفترض إنجليزي
+
+    if (currentLang === 'en') {
+      // لو اللغة إنجليزي، نفتح الصفحة العربية
+      window.location.href = 'index.ar.html';
+    } else {
+      // لو اللغة عربي، نرجع للصفحة الإنجليزية الأصلية
+      window.location.href = 'https://radwaabubkr.github.io/';
+    }
+  });
+</script>
+
+
+<script>
+  // Navigation buttons switching sections
+  const navButtons = document.querySelectorAll('nav .nav-btn');
+  const sections = document.querySelectorAll('main section');
+  const bookingForm = document.getElementById('booking-form');
+  const thankYouMessage = document.getElementById('thankyou-message');
+  const courseSelect = document.getElementById('course');
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-section');
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === target);
+      });
+      // Scroll to top on section change
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Reset form and thank you message when not on booking section
+      if (target !== 'booking') {
+        if (thankYouMessage) thankYouMessage.style.display = 'none';
+        if (bookingForm) {
+          bookingForm.style.display = 'flex';
+          bookingForm.reset();
+        }
+      }
+    });
+  });
+
+  // Handle buttons inside content to switch to booking section and pre-fill course
+ document.querySelector('nav .nav-btn[data-section="booking"]').classList.add('active');
+
+    btn.addEventListener('click', () => {
+      const section = btn.getAttribute('data-section');
+      const course = btn.getAttribute('data-course');
+
+      // Activate booking section
+      navButtons.forEach(b => b.classList.remove('active'));
+      document.querySelector('nav .nav-btn[data-section="booking"]').classList.add('acti
+
+</script>
+<!-- سكريبتات هنا -->
+<script>...الكود اللي فوق...</script>
+<script
+ type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === index);
+    });
+  }
+
+  // إظهار أول سلايد عند التحميل
+  showSlide(currentSlide);
+
+  // أزرار التنقل
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  // سلايدر تلقائي كل 6 ثواني
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 6000);
+</script>
+<script>
+document.querySelector('.login').addEventListener('click', function() {
+    openModal('loginModal');
+});
+document.querySelector('.signup').addEventListener('click', function() {
+    openModal('signupModal');
+});
+
+function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+}
+function closeModals() {
+    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+}
+
+function signup() {
+    const username = document.getElementById('signupUsername').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    if (!username || !email || !password) {
+        alert('Please fill all fields!');
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    if (users.find(u => u.email === email)) {
+        alert('Email already exists!');
+        return;
+    }
+
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Sign Up Successful! You can now login.');
+    closeModals();
+}
+
+function login() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        alert('Welcome ' + user.username + '!');
+        closeModals();
+    } else {
+        alert('Invalid email or password!');
+    }
+}
+</script>
+<script>
+// العناصر الأساسية
+const loginBtn = document.querySelector('.login');
+const signupBtn = document.querySelector('.signup');
+const authButtons = document.querySelector('.auth-buttons');
+
+// نضيف زر Logout في الهيدر
+const logoutBtn = document.createElement('button');
+logoutBtn.textContent = 'Logout';
+logoutBtn.className = 'btn logout';
+logoutBtn.style.display = 'none';
+authButtons.appendChild(logoutBtn);
+
+// لما الصفحة تفتح، لو فيه مستخدم مسجل دخول في Local Storage
+document.addEventListener('DOMContentLoaded', () => {
+    const currentUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (currentUser) {
+        showLoggedInUI(currentUser.username);
+    }
+});
+
+loginBtn.addEventListener('click', function() {
+    openModal('loginModal');
+});
+signupBtn.addEventListener('click', function() {
+    openModal('signupModal');
+});
+
+function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+}
+function closeModals() {
+    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+}
+
+// تسجيل مستخدم جديد
+function signup() {
+    const username = document.getElementById('signupUsername').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    if (!username || !email || !password) {
+        alert('Please fill all fields!');
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    if (users.find(u => u.email === email)) {
+        alert('Email already exists!');
+        return;
+    }
+
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // تسجيل الدخول تلقائي بعد الـ Sign Up
+    localStorage.setItem('loggedInUser', JSON.stringify({ username, email }));
+    showLoggedInUI(username);
+    closeModals();
+}
+
+// تسجيل الدخول
+function login() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('loggedInUser', JSON.stringify({ username: user.username, email: user.email }));
+        showLoggedInUI(user.username);
+        closeModals();
+    } else {
+        alert('Invalid email or password!');
+    }
+}
+
+// تسجيل الخروج
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser');
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    document.querySelector('.welcome-msg')?.remove();
+});
+
+function showLoggedInUI(username) {
+    loginBtn.style.display = 'none';
+    signupBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+
+    // لو الرسالة مش موجودة نضيفها
+    if (!document.querySelector('.welcome-msg')) {
+        const msg = document.createElement('span');
+        msg.className = 'welcome-msg';
+        msg.style.marginLeft = '10px';
+        msg.style.fontWeight = 'bold';
+        msg.style.color = '#fff';
+        msg.textContent = `Welcome, ${username}`;
+        authButtons.appendChild(msg);
+    }
+}
+</script>
+<style>
+.auth-buttons .logout {
+  background:red; /* أحمر */
+  color:#fff; /* خط أبيض */
+  padding:10px 15px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-left:10px;
+  font-weight:bold;
+}
+.welcome-msg {
+  color:#fff; /* أبيض */
+  font-size:16px;
+  margin-left:10px;
+  font-weight:bold;
+}
+</style>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

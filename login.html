@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Courses</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff; /* خلفية بيضاء */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #003366; /* لون الخط */
+    }
+
+    .login-box {
+      text-align: center;
+    }
+
+    input[type="password"] {
+      padding: 15px;
+      border-radius: 30px;
+      border: 2px solid #003366;
+      outline: none;
+      font-size: 16px;
+      width: 250px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #003366;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .btn-53 {
+      border: 1px solid #003366;
+      border-radius: 999px;
+      box-sizing: border-box;
+      display: inline-block;
+      font-weight: 900;
+      overflow: hidden;
+      padding: 1.2rem 3rem;
+      position: relative;
+      text-transform: uppercase;
+      background: white;
+      color: #003366;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-53 .original {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      transition: transform 0.2s;
+      background: #003366;
+      color: white;
+    }
+
+    .btn-53 .letters {
+      display: inline-flex;
+    }
+
+    .btn-53 span {
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-53 span:nth-child(2n) {
+      transform: translateY(15px);
+    }
+
+    .btn-53:hover .original {
+      transform: translateY(100%);
+    }
+
+    .btn-53:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-53:hover span:nth-child(2) { transition-delay: 0.1s; }
+    .btn-53:hover span:nth-child(3) { transition-delay: 0.2s; }
+    .btn-53:hover span:nth-child(4) { transition-delay: 0.3s; }
+    .btn-53:hover span:nth-child(5) { transition-delay: 0.4s; }
+    .btn-53:hover span:nth-child(6) { transition-delay: 0.5s; }
+
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Enter Access Password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <br>
+    <button class="btn-53" onclick="checkPassword()">
+      <div class="original">Enter</div>
+      <div class="letters">
+        <span>E</span>
+        <span>N</span>
+        <span>T</span>
+        <span>E</span>
+        <span>R</span>
+        <span>!</span>
+      </div>
+    </button>
+    <div id="error" style="color:red; margin-top:10px;"></div>
+  </div>
+
+  <script>
+    const validPasswords = [
+      "pw1$abc", "pw2$xyz", "pw3!code", "pw4!learn", "pw5@secure",
+      "pw6#gate", "pw7*view", "pw8^media", "pw9&access", "pw10@page",
+      "pw11$vid", "pw12$path", "pw13!data", "pw14!skill", "pw15@zone",
+      "pw16#lock", "pw17*key", "pw18^open", "pw19&go", "pw20@dash",
+      "pw21$edge", "pw22$deep", "pw23!root", "pw24!html", "pw25@js",
+      "pw26#css", "pw27*db", "pw28^api", "pw29&ux", "pw30@ui",
+      "pw31$full", "pw32$stack", "pw33!next", "pw34!node", "pw35@back",
+      "pw36#front", "pw37*dev", "pw38^host", "pw39&cloud", "pw40@fire",
+      "pw41$gold", "pw42$time", "pw43!learn", "pw44!page", "pw45@fast",
+      "pw46#safe", "pw47*pro", "pw48^vault", "pw49&entry", "pw50@access"
+    ];
+
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const errorDiv = document.getElementById("error");
+
+      if (validPasswords.includes(password)) {
+        window.location.href = "main.html";
+      } else {
+        errorDiv.textContent = "❌ Incorrect password. Try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>

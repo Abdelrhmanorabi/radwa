@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية رضوى أبوبكر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <style>
+/* إعدادات أساسية */
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #fff;
+  color: #003366;
+}
+
+/* الهيدر */
+header {
+  background-color: #5e0e7d; /* موف غامق */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* عنوان الهيدر */
+header h1 {
+  margin: 0;
+  color: white;
+  font-weight: 700;
+  font-size: 1.9rem;
+  cursor: default;
+}
+
+/* النافبار */
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* أزرار النافبار */
+nav button {
+  background-color: #821adc; /* موف */
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* تأثير الهوفر والتفعيل */
+nav button:hover,
+nav button.active {
+  background-color: #00eeff; /* أزرق فاتح */
+}
+
+    main {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section {
+      display: none;
+      margin-top: 2rem;
+    }
+    section.active {
+      display: block;
+    }
+    h1, h2, h3 {
+      color: #1a237e;
+    }
+    .course-slider-container {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .course-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-behavior: smooth;
+    }
+    .course-slide {
+      background: #f5f5f5;
+      border-radius: 10px;
+      min-width: 280px;
+      padding: 1rem;
+      flex-shrink: 0;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .course-slide img {
+      max-width: 80px;
+      margin-bottom: 1rem;
+    }
+    .course-info h3 {
+      color: #8e24aa;
+      margin-bottom: 0.5rem;
+    }
+    .course-info p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .course-info .nav-btn {
+      background-color: #8e24aa;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .course-info .nav-btn:hover {
+      background-color: #ab47bc;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #8e24aa;
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .slider-btn.prev {
+      right: -1.5rem;
+    }
+    .slider-btn.next {
+      left: -1.5rem;
+    }
+    input, select, textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .submit-btn {
+      background-color: #8e24aa;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .submit-btn:hover {
+      background-color: #6a1b9a;
+    }
+  .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #6a0dad;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: rgb(8, 150, 239);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 1;
+  right: 0;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu .nav-btn {
+  background: none;
+  border: none;
+  text-align: right;
+  padding: 10px 20px;
+  width: 100%;
+  color: #f9f9f9;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown-menu .nav-btn:hover {
+  background-color: #421c6b;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.dropdown-toggle {
+  background-color: #6a0dad;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 1;
+  right: 0;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu .nav-btn {
+  background: none;
+  border: none;
+  text-align: right;
+  padding: 10px 20px;
+  width: 100%;
+  color: #101010;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown-menu .nav-btn:hover {
+  background-color: #f3e8ff;
+}
+/* تنسيق موحد لكل الأزرار */
+.nav-btn,
+.button-link,
+.submit-btn {
+  background-color: #8e44ad;
+  color: white;
+  border: 2px solid transparent;
+  padding: 0.6rem 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover,
+.nav-btn.active,
+.button-link:hover,
+.submit-btn:hover {
+  background-color: white;
+  color: #9c20d1;
+  border: 2px solid #8e44ad;
+}
+/* قاعدة عامة لتصغير بعض الهوامش والنصوص في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  nav button.nav-btn {
+    flex: 1 1 45%;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .course-slider {
+    overflow-x: scroll;
+    gap: 0.7rem;
+  }
+
+  .course-slide {
+    min-width: 220px;
+    padding: 1rem 0.5rem;
+  }
+
+  /* تحسين حجم الصور */
+  .course-slide img {
+    max-width: 80px;
+  }
+}
+
+/* للشاشات الأصغر من 480 بكسل (موبايلات صغيرة) */
+@media (max-width: 480px) {
+  nav button.nav-btn {
+    flex: 1 1 100%;
+    font-size: 0.9rem;
+  }
+
+  header {
+    padding: 0.8rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://i.postimg.cc/qvXSfyQh/image.png" alt="شعار أكاديمية رضوى أبوبكر">
+    </div>
+    <nav>
+      <button class="nav-btn active" data-section="home">الرئيسية</button>
+    <div class="dropdown">
+  <button class="nav-btn dropdown-toggle">الدبلومات ▼</button>
+  <div class="dropdown-menu">
+    <button class="nav-btn" data-section="foundation">دبلومة التأسيسية</button>
+    <button class="nav-btn" data-section="advanced">الدبلومة المتقدمة</button>
+  </div>
+</div>
+
+
+<div class="dropdown">
+  <button class="dropdown-toggle">الورش ▼</button>
+  <div class="dropdown-menu">
+    <button class="nav-btn" data-section="art-of-soul">ورشة فن الروح</button>
+    <button class="nav-btn" data-section="connection">ورشة فن التواصل</button>
+    <button class="nav-btn" data-section="discovery">ورشة الاكتشاف</button>
+  </div>
+</div>
+
+      <button class="nav-btn" data-section="about">من نحن</button>
+      <button class="nav-btn" data-section="booking">احجز الآن</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="active">
+      <h1>مرحبا بكم في أكاديمية رضوى أبوبكر</h1>
+      <p>حوّل حياتك من خلال العلاج بالفن وفهم العواطف.</p>
+      <img src="https://i.postimg.cc/DzGqTtgN/image.jpg" alt="Luscher Test" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin: 1rem 0;">
+      <h2>حوّل حياتك من خلال الفهم العاطفي العميق</h2>
+      <p>هل شعرت يومًا أن مشاعرك أكبر من قدرتك على التعامل معها؟ أو أنك تحمل أعباء لا تفهم مصدرها؟ من خلال برامجنا المتخصصة، نساعدك على الوصول إلى الطبقات الخفية من عقلك ومشاعرك باستخدام أدوات مثبتة علميًا ومعتمدة دوليًا.</p>
+p>
+هل شعرت يومًا أن مشاعرك أكبر من قدرتك على التعامل معها؟ أو أنك تحمل أعباء لا تفهم مصدرها؟
+من خلال برامجنا المتخصصة، نساعدك على الوصول إلى *الطبقات الخفية* من عقلك ومشاعرك باستخدام أدوات مثبتة علميًا ومعتمدة دوليًا.
+</p>
+
+<h3>🎨 قوة العلاج بالفن</h3>
+<p>
+العلاج بالفن ليس مجرد رسم — بل هو وسيلة للتعبير عما تعجز الكلمات عن وصفه. من خلال جلسات موجهة، ستتعلم كيفية معالجة الصدمات، وإدارة التوتر، وشفاء الجروح العاطفية.
+سواء كنت تعاني من القلق، أو الانفصال، أو الارتباك العاطفي، فإن العلاج بالفن يقدم وسيلة لطيفة وفعالة لتحرير الألم وإعادة الاتصال بذاتك الحقيقية.
+</p>
+
+<h3>🎯 اختبار ماكس لوشر للألوان – علم النفس بالألوان</h3>
+<p>
+أداة نفسية عالمية تغوص في اللاوعي من خلال اختيارات الألوان البسيطة. دون أسئلة أو شرح طويل، يكشف اختبار لوشر عن حالتك العاطفية، وصراعاتك الداخلية، واحتياجاتك النفسية.
+يُستخدم عالميًا من قبل المعالجين، والأطباء، وأقسام الموارد البشرية، والمدربين — والآن متاح لك من خلال جلسات خاصة أو تدريبات.
+</p>
+
+<h3>🧠 الصحة النفسية التشخيصية (ميتا هيلث) وتشخيص الصدمات</h3>
+<p>
+نتجاوز الأعراض السطحية لنكشف عن الأسباب العاطفية الجذرية خلف المشكلات الجسدية والنفسية. "ميتا هيلث" هو علم قوي يربط بين العقل، والدماغ، والجسم،
+ويساعدك على فهم أسباب تكرار الأنماط أو الأعراض — وكيفية التحرر منها.
+</p>
+
+<h3>👩‍💼 تدريبات مؤسسية للفرق والقادة</h3>
+<p>
+نقدم برامج تدريبية متقدمة للمؤسسات والشركات تعتمد على علم نفس الألوان، والوعي العاطفي، وتشخيص السلوك.
+باستخدام اختبار لوشر وأدوات العلاج بالفن، نساعد الفرق على بناء ذكاء عاطفي أقوى، وتحسين التواصل والإنتاجية — بنتائج تدوم.
+</p>
+
+<h3>❤️ استشارات للعلاقات والأزواج</h3>
+<p>
+العلاقات هي جوهر عالمنا العاطفي. جلساتنا المعتمدة تعتمد على أساليب نفسية عميقة لمساعدة الأزواج على فهم الديناميكيات العاطفية، وبناء حدود صحية،
+والتواصل الحقيقي. سواء كنت أعزبًا، أو متزوجًا، أو تمرّ بمرحلة معقدة — هناك دائمًا مساحة للشفاء.
+</p>
+
+<img src="https://i.postimg.cc/yY5Kq9td/image.jpg" alt="العلاج بالفن" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin-top:2rem; margin-bottom:1rem;" />
+
+<h3>📚 برامج معتمدة من جهات دولية</h3>
+<p>
+جميع جلساتنا وتدريباتنا بقيادة <strong>Radwa Abubkr</strong>، الحاصلة على شهادات دولية في مجالات متعددة من العلاج والتشخيص.
+لن تحضر جلسة فقط — بل ستبدأ رحلة تحول مبنية على معرفة عميقة، وتعاطف، وأدوات فعالة.
+</p>
+
+
+    <!-- سلايدر الكورسات -->
+    <div class="course-slider-container">
+      <div class="course-slider-container">
+        <button class="slider-btn prev">&#10094;</button>
+        <div class="course-slider" id="course-slider">
+          <div class="course-slide">
+            <img src="https://i.postimg.cc/d1VWcCX6/images-2.png" alt="التأسيسية">
+            <div class="course-info">
+              <h3>دبلومة العلاج بالفن التأسيسية</h3>
+              <p>تعلم الشفاء من خلال الإبداع. افهم عواطفك وحرر توترك.</p>
+              <button class="nav-btn button-link" data-section="foundation">عرض المزيد</button>
+            </div>
+          </div>
+          <div class="course-slide">
+            <img src="https://i.postimg.cc/d1VWcCX6/images-2.png" alt="المتقدمة">
+            <div class="course-info">
+              <h3>الدبلومة المتقدمة</h3>
+              <p>أتقن تقنيات تحرير الصدمات وعلم نفس الطاقة.</p>
+              <button class="nav-btn button-link" data-section="advanced">عرض المزيد</button>
+            </div>
+          </div>
+          <div class="course-slide">
+            <img src="https://i.postimg.cc/W4FGG7QQ/removebg-preview.png" alt="ورشة التواصل">
+            <div class="course-info">
+              <h3>ورشة فن التواصل</h3>
+              <p>تعلم كيفية بناء حدود عاطفية وعلاقات قوية.</p>
+              <button class="nav-btn button-link" data-section="connection">عرض المزيد</button>
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn next">&#10095;</button>
+      </div>
+    </section>
+  </main>
+<!-- دبلومة العلاج بالفن – المستوى المتقدم -->
+<section id="advanced" style="display:none; max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 12px; border: 2px solid #ccc;">
+  <img src="https://i.postimg.cc/J4SnXsqv/images-2.png" alt="Advanced Diploma Logo" style="display:block; margin: 0 auto 1rem; max-width: 220px;">
+
+  <h2 style="color: #512da8; text-align: center; margin-bottom: 1rem;">دبلومة العلاج بالفن – المستوى المتقدم</h2>
+
+  <p style="color: #444; line-height: 1.8;">
+    بعد رحلتك في المستوى التأسيسي، حان وقت التعمق! هذه الدبلومة صُممت لتأخذك إلى أعماق النفس البشرية عبر الفن، وتمنحك أدوات متقدمة لتكون معالجًا محترفًا قادرًا على التعامل مع حالات أكثر تعقيدًا.
+  </p>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">🔍 أبرز محاور المستوى المتقدم:</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>كيفية التعامل مع حالات الصدمة النفسية العميقة باستخدام العلاج بالفن</li>
+    <li>فهم الديناميكيات النفسية في جلسات العلاج</li>
+    <li>التفسير المتقدم للرموز الفنية والرسومات</li>
+    <li>تصميم خطة علاجية كاملة باستخدام الفن</li>
+    <li>التعامل مع المقاومات النفسية داخل الجلسة</li>
+    <li>دراسة حالات فعلية وتحليلها بالتفصيل</li>
+  </ul>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">🎨 الجانب العملي:</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>تدريب على جلسات علاجية واقعية تحت إشراف مباشر</li>
+    <li>مشروع تخرج حقيقي يتضمن حالة كاملة بتقييم وعلاج</li>
+    <li>ورش فنية متقدمة باستخدام الطين، الكولاج، الرسم التعبيري</li>
+  </ul>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">🧠 المهارات التي ستكتسبها:</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>الثقة في قيادة جلسات علاجية حقيقية</li>
+    <li>قدرة على فهم وتحليل مشكلات العملاء بعمق</li>
+    <li>مهارات إشراف ومتابعة للحالات</li>
+    <li>قدرة على تقديم دورات تدريبية للمبتدئين في المستقبل</li>
+  </ul>
+
+  <p style="font-weight: bold; color: #4a148c; text-align:center; margin-top: 2rem;">
+    🎓 هذه الدبلومة ليست فقط للتعلم بل للتحول، ستمنحك رؤية جديدة للعلاج والإبداع، وستكون نقلة نوعية في مسارك المهني والنفسي.
+  </p>
+
+  <button class="button-link nav-btn" data-section="booking" data-course="دبلومة العلاج بالفن – المستوى المتقدم"
+    style="background-color:#8e24aa; color:#fff; padding: 0.8rem 1.5rem; border:none; border-radius: 8px; cursor:pointer; display: block; margin: 2rem auto 0;">
+    احجز الآن
+  </button>
+</section>
+
+<section id="discovery">
+  
+</section>
+<section id="discovery" style="display:none; max-width: 900px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 12px; border: 2px solid #ccc;">
+  <img src="https://i.postimg.cc/1XQ0yyCY/removebg-preview.png" alt="شعار ورشة الاستكشاف" style="display:block; margin: 0 auto 1rem; max-width: 200px;">
+  <h2 style="color: #512da8; text-align: center; margin-bottom: 1rem;">ورشة الاستكشاف</h2>
+  <p style="text-align: center; color: #555;">المدة: 4 أيام متتالية - 3 ساعات يوميًا</p>
+  <p style="text-align: center; color: #555;">المنصة: Zoom (أونلاين)</p>
+  <p style="text-align: center; color: #555;">الشهادة: شهادة حضور من المدربة</p>
+
+  <p style="margin-top: 1rem; color: #444; line-height: 1.8;">
+    تساعدك هذه الورشة على:
+  </p>
+  <ul style="color:#555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>🧭 اكتشاف احتياجاتك الحقيقية ومشاعرك العميقة</li>
+    <li>🧠 فهم تأثير الصدمات على اتخاذ القرارات والعلاقات</li>
+    <li>🔍 التعرف على المكاسب الثانوية خلف السلوكيات أو الأمراض المزمنة</li>
+    <li>💔 تعلم كيفية تحرير الصدمات والتعرف على أنواعها وأسبابها</li>
+    <li>🌀 التواصل مع نظامك الداخلي للشفاء والتوازن</li>
+  </ul>
+
+  <button class="button-link nav-btn" data-section="booking" data-course="ورشة الاستكشاف" style="background-color:#8e24aa; color:#fff; padding: 0.8rem 1.5rem; border:none; border-radius: 8px; cursor:pointer; display: block; margin: 2rem auto 0;">احجز الآن</button>
+</section>
+
+<section id="about">
+  <div class="about-container">
+    <img src="https://i.postimg.cc/N00sXrBQ/Whats-App-Image-2025-06-20-at-00-08-49-8f2f1dc4.jpg" alt="Radwa Abubkr" class="about-photo">
+    
+    <div class="about-text">
+      <h2>من نحن</h2>
+      <p><strong>رضوى أبوبكر</strong> مدربة معتمدة وممارِسة محترفة لتقنيات الشفاء العاطفي والعلاج بالفن، حاصلة على شهادات دولية من سويسرا، إنجلترا، وألمانيا.</p>
+      
+      <ul>
+        <li>📍 ممارِسة لاختبار ماكس لوشير للألوان – سويسرا</li>
+        <li>📍 ممارِسة متقدمة لـ Meta-Health – ألمانيا</li>
+        <li>📍 معالجة بالفن – المعهد الكندي CiiAT</li>
+        <li>📍 مستشارة علاقات معتمدة – إنجلترا</li>
+        <li>📍 ممارِسة EFT وMatrix Reimprinting – إنجلترا</li>
+        <li>📍 مدربة Life Coach – Neuro-Semantics</li>
+        <li>📍 متمرسة في أكسس بارز، الريكي، التشخيص العاطفي، والصدمات</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ورشة فن الروح -->
+<section id="art-of-soul" style="display:none; max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 12px; border: 2px solid #ccc;">
+  <img src="https://i.postimg.cc/g2wgMT3r/removebg-preview.png" alt="شعار ورشة فن الروح" style="display:block; margin: 0 auto 1rem; max-width: 200px;">
+  
+  <h2 style="color: #512da8; text-align: center; margin-bottom: 1rem;">ورشة فن الروح</h2>
+  
+  <p style="text-align: center; color: #555;">🕒 المدة: أسبوعان (يومان في الأسبوع، 4 ساعات لكل جلسة)</p>
+  <p style="text-align: center; color: #555;">💻 المنصة: Zoom (أونلاين)</p>
+  <p style="text-align: center; color: #555;">📜 الشهادة: شهادة حضور من المدربة</p>
+
+  <p style="color: #444; line-height: 1.8; margin-top: 1rem;">
+    تركز هذه الورشة على الاتصال العاطفي والشفاء الإبداعي باستخدام تقنيات العلاج بالفن. من خلال الرسم والتعبير، ستكتشف أعماق نفسك بطريقة فنية تعزز الفهم والراحة النفسية.
+  </p>
+
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>🎨 تحرير المشاعر من خلال الفن</li>
+    <li>💫 بناء علاقة أعمق مع الذات</li>
+    <li>🖌️ تقنيات فنية لشفاء الروح</li>
+    <li>🧘‍♀️ التعبير الإبداعي لتقليل التوتر والقلق</li>
+  </ul>
+
+  <button class="button-link nav-btn" data-section="booking" data-course="ورشة فن الروح"
+    style="background-color:#8e24aa; color:#fff; padding: 0.8rem 1.5rem; border:none; border-radius: 8px; cursor:pointer; display: block; margin: 2rem auto 0;">
+    احجز الآن
+  </button>
+</section>
+
+<!-- دبلومة العلاج بالفن التأسيسية -->
+<section id="foundation" style="display:none; max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 12px; border: 2px solid #ccc;">
+  <img src="https://i.postimg.cc/J4SnXsqv/images-2.png" alt="شعار دبلومة التأسيس" style="display:block; margin: 0 auto 1rem; max-width: 220px;">
+
+  <h2 style="color: #512da8; text-align: center; margin-bottom: 1rem;">دبلومة العلاج بالفن – المستوى التأسيسي</h2>
+
+  <p style="color: #444; line-height: 1.8;">
+    هل شعرت يومًا أنك لا تملك الوسيلة الصحيحة للتعبير عن نفسك؟ هل تحاول الوصول إلى عمق مشاعرك لكن الكلمات تخونك؟ هذه الدبلومة تم تصميمها لك خصيصًا.
+  </p>
+
+  <p style="color: #444; line-height: 1.8;">
+    دبلومة العلاج بالفن التأسيسية هي بوابتك لفهم ذاتك من خلال الإبداع، واكتشاف طرق جديدة للتعامل مع التوتر، وتحقيق التوازن النفسي والعاطفي باستخدام أدوات وتقنيات فنية فعالة وعلمية.
+  </p>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">🎓 ماذا ستتعلم؟</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>الفرق بين الإدراك والوعي في الحياة اليومية</li>
+    <li>الوعي العاطفي ومراحله عبر مراحل النمو</li>
+    <li>ربط المشاعر بالجسم والعقل والدماغ</li>
+    <li>فهم الصدمات وأنواعها وكيفية التعامل معها</li>
+    <li>التشخيص بالألوان – مدخل إلى اختبار لوشير</li>
+    <li>المدارس المختلفة للعلاج بالفن</li>
+    <li>تحليل الرموز والتعبير اللاكلامي من خلال الرسم</li>
+  </ul>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">🎨 الجانب الفني والعملي</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>تقنيات التلوين الحر والرموز الفنية</li>
+    <li>كيفية قيادة جلسة علاج بالفن</li>
+    <li>كتابة تقارير التقييم والمتابعة</li>
+    <li>جلسات إشراف جماعية مع مراجعة التطبيقات</li>
+    <li>تدريب عملي على أكثر من 10 أنشطة علاجية</li>
+  </ul>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">✅ لمن هذه الدبلومة؟</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>لكل من يسعى لفهم ذاته والتخلص من التوتر</li>
+    <li>للمعالجين، المدربين، المعلمين، وأولياء الأمور</li>
+    <li>لمن يريد بناء مشروع متكامل بالعلاج بالفن</li>
+    <li>لكل من يشعر بأن الإبداع هو بوابة التغيير</li>
+  </ul>
+
+  <p style="font-weight: bold; color: #4a148c; text-align:center; margin-top: 2rem;">
+    🖌️ لا تحتاج أن تكون فنانًا، فقط كن مستعدًا لاكتشاف ذاتك الحقيقية من خلال الفن.
+  </p>
+
+  <button class="button-link nav-btn" data-section="booking" data-course="دبلومة العلاج بالفن التأسيسية"
+    style="background-color:#8e24aa; color:#fff; padding: 0.8rem 1.5rem; border:none; border-radius: 8px; cursor:pointer; display: block; margin: 2rem auto 0;">
+    احجز الآن
+  </button>
+</section>
+
+<!-- ورشة فن التواصل -->
+<section id="connection" style="display:none; max-width: 900px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 12px; border: 2px solid #ccc;">
+  <img src="https://i.postimg.cc/k5mWx1c0/removebg-preview.png" alt="شعار ورشة فن التواصل" style="display:block; margin: 0 auto 1rem; max-width: 220px;">
+
+  <h2 style="color: #512da8; text-align: center; margin-bottom: 1rem;">ورشة فن التواصل</h2>
+
+  <p style="color: #444; line-height: 1.8;">
+    هل تعاني من سوء فهم دائم في علاقاتك؟ هل تجد صعوبة في التعبير عن نفسك أو وضع حدود صحية؟ ورشة "فن التواصل" مصممة لمساعدتك على تحسين مهارات التواصل العاطفي والاجتماعي.
+  </p>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">📘 تفاصيل الورشة:</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li><strong>المدة:</strong> يومان متتاليان، كل يوم 4 ساعات</li>
+    <li><strong>الشهادة:</strong> شهادة حضور معتمدة من المدربة</li>
+    <li><strong>المنصة:</strong> أونلاين عبر Zoom</li>
+  </ul>
+
+  <h3 style="color: #7b1fa2; margin-top: 1.5rem;">📌 محاور الورشة:</h3>
+  <ul style="color: #555; padding-right: 1.5rem; line-height: 1.8;">
+    <li>أنواع الأدوار في العلاقات وكيفية إدارتها</li>
+    <li>بناء حدود عاطفية صحية</li>
+    <li>فهم "متى أقول نعم، ومتى أقول لا"</li>
+    <li>مخاطر تبديل الأدوار في العلاقات وتأثيرها النفسي</li>
+    <li>كيف تنشئ تواصلًا ناضجًا يعزز القرب لا الصراع</li>
+  </ul>
+
+  <p style="font-weight: bold; color: #4a148c; text-align:center; margin-top: 2rem;">
+    🧠 هذه الورشة لا تقدم نظريات فقط، بل تمارين عملية ستغيّر طريقتك في التفاعل مع نفسك والآخرين.
+  </p>
+
+  <button class="button-link nav-btn" data-section="booking" data-course="ورشة فن التواصل"
+    style="background-color:#8e24aa; color:#fff; padding: 0.8rem 1.5rem; border:none; border-radius: 8px; cursor:pointer; display: block; margin: 2rem auto 0;">
+    احجز الآن
+  </button>
+</section>
+
+
+<style>
+#about {
+  background-color: #fff;
+  color: #333;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.about-text h2 {
+  color: #1a237e;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-text ul li {
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  color: #8e24aa;
+  font-weight: 500;
+}
+body {
+  background: #fff;
+  color: #333;
+  font-family: 'Cairo', sans-serif;
+}
+
+.course-slider-container {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.course-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+}
+
+.course-slide {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 280px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #ccc;
+}
+
+.course-slide img {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.course-info h3 {
+  color: #1a237e; /* كحلي */
+  margin-bottom: 0.5rem;
+}
+
+.course-info p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.course-info .nav-btn,
+.course-info .button-link {
+  background-color: #8e24aa; /* موف */
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.course-info .nav-btn:hover,
+.course-info .button-link:hover {
+  background-color: #ab47bc;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #8e24aa;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 0.6rem;
+  border-radius: 6px;
+  user-select: none;
+  z-index: 10;
+}
+
+.slider-btn.prev {
+  right: -2rem;
+}
+
+.slider-btn.next {
+  left: -2rem;
+}
+
+@media (max-width: 600px) {
+  .slider-btn.prev,
+  .slider-btn.next {
+    display: none;
+  }
+}
+
+</style>
+
+<section id="booking">
+  <h2>نموذج الحجز</h2>
+  <p>املأ النموذج أدناه لحجز مقعدك في الدورة أو الورشة التي تختارها:</p>
+
+  <form action="https://formspree.io/f/mldnwrwk" method="POST" style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto;">
+    <label for="name">الاسم الكامل:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">البريد الإلكتروني:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">رقم الهاتف:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="course">اختر البرنامج:</label>
+    <select id="course" name="course" required>
+      <option value="">-- اختر --</option>
+      <option value="دبلومة العلاج بالفن التأسيسية">دبلومة العلاج بالفن التأسيسية</option>
+      <option value="الدبلومة المتقدمة في العلاج بالفن">الدبلومة المتقدمة في العلاج بالفن</option>
+      <option value="ورشة فن الروح">ورشة فن الروح</option>
+      <option value="ورشة فن التواصل">ورشة فن التواصل</option>
+      <option value="ورشة الاكتشاف">ورشة الاكتشاف</option>
+    </select>
+
+    <label for="notes">ملاحظات إضافية:</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="اكتب أي ملاحظات أو استفسارات..."></textarea>
+
+    <button type="submit" class="submit-btn">إرسال الحجز</button>
+  </form>
+
+  <div style="margin-top: 2rem;">
+    <h3>خيارات الدفع:</h3>
+    <ul>
+      <li>💳 <a href="https://ipn.eg/S/radwaabubakar/instapay/7LsZXx" target="_blank">الدفع عبر InstaPay</a></li>
+      <li>💬 <a href="https://wa.me/201012147242" target="_blank">تواصل عبر واتساب للدفع عبر فودافون كاش أو التحويل البنكي</a></li>
+    </ul>
+  </div>
+</section>
+<section id="payment-methods" style="max-width: 700px; margin: 2rem auto; padding: 1.5rem 2rem; background-color: #faf8ff; border-radius: 12px; box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2); font-family: 'Cairo', sans-serif; color: #4b0082;">
+  <style>
+    #payment-methods h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #8e44ad;
+      text-align: center;
+    }
+    #payment-methods ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #payment-methods ul li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #payment-methods ul li a {
+      color: #8e44ad;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      padding: 0.1rem 0.3rem;
+      border-radius: 6px;
+    }
+    #payment-methods ul li a:hover {
+      color: #fff;
+      background-color: #8e44ad;
+      box-shadow: 0 0 8px #8e44ad;
+    }
+  </style>
+
+  <h3>خيارات الدفع:</h3>
+  <ul>
+    <li>💳 <a href="https://ipn.eg/S/radwaabubakar/instapay/7LsZXx" target="_blank" rel="noopener noreferrer">الدفع عبر InstaPay</a></li>
+    <li>💬 <a href="https://wa.me/201012147242" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب للدفع عبر التحويل البنكي</a></li>
+  </ul>
+</section>
+
+<style>
+  #booking {
+    background: #fff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 900px;
+  }
+
+  #booking h2, #booking h3 {
+    color: #1a237e;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  #booking label {
+    font-weight: bold;
+    color: #333;
+  }
+
+  #booking input,
+  #booking select,
+  #booking textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  #booking .submit-btn {
+    background: #8e24aa;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  #booking .submit-btn:hover {
+    background: #aa4bc4;
+  }
+
+  #booking a {
+    color: #8e24aa;
+    font-weight: bold;
+  }
+
+  #booking a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+<script>
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('section');
+
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-section');
+
+      // إظهار القسم المطلوب وإخفاء الباقي
+      sections.forEach(section => {
+        if (section.id === target) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // تفعيل الزر الحالي وتعطيل الباقي
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // تمرير لأعلى الصفحة
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // إظهار أول قسم عند تحميل الصفحة
+  window.addEventListener('DOMContentLoaded', () => {
+    const defaultSection = document.querySelector('section');
+    if (defaultSection) defaultSection.style.display = 'block';
+  });
+</script>
+
+
+
+
+</body>
+</html>

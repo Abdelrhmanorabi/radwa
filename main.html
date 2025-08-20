@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses Page</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff; /* خلفية بيضاء */
+      color: #003366;            /* لون الخط */
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #003366;
+      color: white;
+      padding: 12px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .menu-btn:hover {
+      background-color: #005599;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 250px;
+      height: 100%;
+      background-color: #e6e6e6;
+      padding: 60px 20px;
+      transition: left 0.4s ease;
+      z-index: 999;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #003366;
+      text-decoration: none;
+      font-size: 18px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      color: #005599;
+    }
+
+    .main {
+      padding: 100px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .course-card {
+      background-color: #f8f8f8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0, 51, 102, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 20px;
+    }
+
+    .course-content h3 {
+      margin: 10px 0;
+      color: #003366;
+    }
+
+    .course-content p {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .view-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .view-button:hover {
+      background-color: #005599;
+    }
+
+    /* Logout Button (Uiverse style) */
+    .Btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      overflow: hidden;
+      transition: 0.3s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      background-color: rgb(255, 65, 65);
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    .sign {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s ease;
+    }
+
+    .sign svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .sign svg path {
+      fill: white;
+    }
+
+    .text {
+      position: absolute;
+      right: 0;
+      width: 0;
+      opacity: 0;
+      color: white;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .Btn:hover {
+      width: 130px;
+      border-radius: 40px;
+    }
+
+    .Btn:hover .sign {
+      width: 30%;
+      padding-left: 10px;
+    }
+
+    .Btn:hover .text {
+      width: 70%;
+      opacity: 1;
+      padding-right: 10px;
+    }
+
+    .Btn:active {
+      transform: translate(2px, 2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر القائمة الجانبية -->
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <!-- زر تسجيل الخروج -->
+  <a href="index.html" class="Btn">
+    <div class="sign">
+      <svg viewBox="0 0 512 512">
+        <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9
+        c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1
+        c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7
+        14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75
+        43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+      </svg>
+    </div>
+    <div class="text">Logout</div>
+  </a>
+
+  <!-- القائمة الجانبية -->
+  <div class="sidebar" id="sidebar">
+    <a href="#">📚 Courses</a>
+    <a href="coach.html">🧑‍🏫 About the Coach</a>
+    <a href="contact.html">📩 Contact</a>
+  </div>
+
+  <!-- الكورسات -->
+  <div class="main">
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=Course+1" alt="Course 1">
+      <div class="course-content">
+        <h3>Course 1: Web Basics</h3>
+        <p>Intro to HTML, CSS, and JavaScript. Perfect for beginners.</p>
+        <button class="view-button" onclick="location.href='course1.html'">View Course</button>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=Course+2" alt="Course 2">
+      <div class="course-content">
+        <h3>Course 2: JavaScript Mastery</h3>
+        <p>Dive deep into JavaScript, ES6, DOM, and logic building.</p>
+        <button class="view-button" onclick="location.href='course2.html'">View Course</button>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="https://via.placeholder.com/400x200?text=Course+3" alt="Course 3">
+      <div class="course-content">
+        <h3>Course 3: Front-End Pro</h3>
+        <p>Advanced CSS, animations, and responsive design skills.</p>
+        <button class="view-button" onclick="location.href='course3.html'">View Course</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
